@@ -1,4 +1,18 @@
 body {
     background-color: #4087A8;
     color: #fff;
+    margin: 0 auto;
+}
+
+.main-container {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-title {
+    margin-top: 15vh;
 }
