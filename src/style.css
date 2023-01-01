@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 body {
-    background-color: #4087A8;
-    color: #fff;
+    background-color: #fff;
+    color: #4087A8;
     margin: 0 auto;
     font-family: 'Lato', sans-serif;
 }
@@ -73,12 +73,14 @@ input[type=number] {
     border: none;
     border-radius: 2px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #4087A8;
+    color: #fff;
+    font-size: 20px;
 }
 
 .item {
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
+    width: 40px;
+    height: auto;
 }
 
 .items-exclaimer {
@@ -95,7 +97,7 @@ input[type=number] {
 
 .items-container {
     margin: 0 auto;
-    width: 50%;
+    width: 510px;
     display: flex;
     flex-wrap: wrap;
     gap: 2px;
