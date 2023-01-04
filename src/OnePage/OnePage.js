@@ -42,21 +42,24 @@ export default function OnePage(props) {
     return (
         <div className="main-container">
             <h1 className="main-title">Balance</h1>
-            <h2 className="main-subtitle">Check how much is it worth?</h2>
+            <h2 className="main-subtitle">How much is worth?</h2>
             <hr className="line-divider"></hr>
             <form className="one-page-form" onSubmit={e => handleSubmit(e)}>
-                <label className="one-page-form-label">What?</label>
-                <input className="one-page-form-input" placeholder="What do you want to buy?" id="form-what" type="text" value={what} onChange={e => setWhat(e.target.value)}></input>
+                <label className="one-page-form-label">What do you want to buy?</label>
+                <input className="one-page-form-input" id="form-what" type="text" value={what} onChange={e => setWhat(e.target.value)} autoFocus></input>
+                <hr className="one-page-form-line"></hr>
              <br/>
-               <label className="one-page-form-label">How much?</label>
-                <input className="one-page-form-input" placeholder="How much it will cost you?" id="form-how-many" type="number" value={howMany} onChange={e => setHowMany(e.target.value)}></input>
-                <input className="one-page-form-submit-button" type="submit" value="Check"/>
+               <label className="one-page-form-label">How much $ it costs?</label>
+                <input className="one-page-form-input" id="form-how-many" type="number" value={howMany} onChange={e => setHowMany(e.target.value)}></input>
+                <hr className="one-page-form-line"></hr>
+                <input className="one-page-form-submit-button" type="submit" value="Check"/><nobr>>></nobr>
             </form>
             {(submited === false) ? (
-                <div className="items-placeholder">Give me a price</div> 
+                <div className="items-placeholder"></div> 
             ) : (
                 <div ref={ref}>
-                <div className="items-exclaimer">For {howMany}$ you can buy {numberOfItems} vacines</div>
+                <div className="items-exclaimer">Your <span>{what}$</span> is worth <span>{numberOfItems}</span> vacines</div>
+                <hr className="one-page-form-line"></hr>
                 <div className="items-container">
                     {Array.from(Array(numberOfItems).keys()).map((crate, index) => {
                     return (
@@ -66,6 +69,7 @@ export default function OnePage(props) {
                     )
                         }
                     )}
+                <hr className="one-page-form-line"></hr>
                 </div>
                 </div>
             )
