@@ -5,8 +5,8 @@
   }
 
 body {
-    background-color: #4087A8;
-    color: #fff;
+    background-color:#fff ;
+    color: #4087A8;
     margin: 0 auto;
 }
 
@@ -33,16 +33,17 @@ input[type=number] {
 
 .main-title {
     margin: 0;
-    margin-top: 15vh;
+    margin-top: 10vh;
     font-size: 60px;
     letter-spacing: .2em;
     text-transform: uppercase;
     transform: rotate(-1deg);
+    font-weight: 300;
 }
 
 .main-subtitle {
     margin-top: -10px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     font-weight: 200;
 }
 
@@ -124,9 +125,20 @@ input[type=number] {
     cursor: pointer;
 }
 
-.item {
+.picture_very_small {
+    width: 30px;
+    height: auto;
+}
+
+.picture_small {
     width: 40px;
     height: auto;
+}
+
+.picture_huge {
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
 }
 
 .items-exclaimer {
@@ -157,4 +169,8 @@ input[type=number] {
     flex-wrap: wrap;
     gap: 2px;
     margin-bottom: 100px;
+}
+
+.item {
+    text-transform: capitalize;
 }
