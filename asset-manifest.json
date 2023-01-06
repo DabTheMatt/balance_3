@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/balance_3/static/css/main.67942a91.css",
-    "main.js": "/balance_3/static/js/main.0fc3d2f4.js",
+    "main.css": "/balance_3/static/css/main.ed6dde78.css",
+    "main.js": "/balance_3/static/js/main.07224c03.js",
     "static/js/787.875eb2aa.chunk.js": "/balance_3/static/js/787.875eb2aa.chunk.js",
     "static/media/vacine_2.png": "/balance_3/static/media/vacine_2.2d47eef83621aa2b7c4c.png",
     "static/media/vacine_1.png": "/balance_3/static/media/vacine_1.3713febf2b09a9c4893d.png",
@@ -9,12 +9,12 @@
     "static/media/vacine_3.png": "/balance_3/static/media/vacine_3.1520fa2ae101fad9dbea.png",
     "static/media/logo.svg": "/balance_3/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/balance_3/index.html",
-    "main.67942a91.css.map": "/balance_3/static/css/main.67942a91.css.map",
-    "main.0fc3d2f4.js.map": "/balance_3/static/js/main.0fc3d2f4.js.map",
+    "main.ed6dde78.css.map": "/balance_3/static/css/main.ed6dde78.css.map",
+    "main.07224c03.js.map": "/balance_3/static/js/main.07224c03.js.map",
     "787.875eb2aa.chunk.js.map": "/balance_3/static/js/787.875eb2aa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.67942a91.css",
-    "static/js/main.0fc3d2f4.js"
+    "static/css/main.ed6dde78.css",
+    "static/js/main.07224c03.js"
   ]
 }
