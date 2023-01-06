@@ -4,6 +4,7 @@ import vacine_2 from "../assets/vacines/vacine_2.png";
 import vacine_3 from "../assets/vacines/vacine_3.png";
 import vacine_4 from "../assets/vacines/vacine_4.png";
 
+
 export default function OnePage(props) {
     const ref = useRef(null);
 
@@ -12,6 +13,10 @@ export default function OnePage(props) {
     const [numberOfItems, setNumberOfItems] = useState(0);
     const [submited, setSubmited] = useState(false);
     const [vacinesArray, setVacinesArray] = useState([]);
+    const [item, setItem] = useState('');
+    const [substitute, setSubstitute] = useState('');
+    const [pictureAdress, setPictureAdress] = useState('');
+    const [pictureSize, setPictureSize] = useState('');
 
     useEffect(() => {
         console.log(numberOfItems);
@@ -21,17 +26,44 @@ export default function OnePage(props) {
 
     const handleSubmit= (e) =>  {
         e.preventDefault();
-        let numbers = howMany * 5
+        let numbers = 0;
+        let numberOfPictures;
+        if (howMany <= 5) {
+            numbers = parseInt(howMany / 0.03); 
+            setSubstitute('pencils');
+            setPictureAdress('/assets/pencils/');
+            setPictureSize('picture_very_small');
+            numberOfPictures = 21;
+        } else if (howMany > 5 && howMany <= 10) {
+            numbers = howMany * 5; 
+            setSubstitute('vacines');
+            setPictureAdress('/assets/vacines/');
+            setPictureSize('picture_small');
+            numberOfPictures = 4;
+        } else if (howMany > 10 && howMany <= 100) {
+            numbers = parseInt(howMany * 0.2);
+            setSubstitute('baobab trees');
+            setPictureAdress('/assets/baobabs/');
+            setPictureSize('picture_huge');
+            numberOfPictures = 21;
+        } else if (howMany > 100 && howMany < 10000) {
+            numbers = parseInt(howMany * 0.1);
+            setSubstitute('hospital beds');
+            setPictureAdress('/assets/beds/');
+            setPictureSize('picture_huge');
+            numberOfPictures = 4;
+        }
+        console.log('numbers', numbers);
+        console.log('numbers of pictures', numberOfPictures);
+        setItem(what);
         setNumberOfItems(numbers);
         setSubmited(true);
-
-        
-
+  
         let tempAr = Array.from(Array(numbers).keys());
         console.log('tempAr length', tempAr.length);
 
        let tempAr2 = tempAr.map(function (el) {
-            return 'vacine_' + Math.floor(Math.random() * (4 - 1 + 1) + 1);
+            return Math.floor(Math.random() * (numberOfPictures - 1 + 1) + 1);
         });
         console.log('tempAr2', tempAr2);
 
@@ -40,7 +72,7 @@ export default function OnePage(props) {
 
 
     return (
-        <div className="main-container">
+        <div className="main-container" id="main-id">
             <h1 className="main-title">Balance</h1>
             <h2 className="main-subtitle">How much is worth?</h2>
             <hr className="line-divider"></hr>
@@ -58,13 +90,13 @@ export default function OnePage(props) {
                 <div className="items-placeholder"></div> 
             ) : (
                 <div ref={ref}>
-                <div className="items-exclaimer">Your <span>{what}$</span> is worth <span>{numberOfItems}</span> vacines</div>
+                <div className="items-exclaimer">Your <span className="item">{item}</span> is worth <span>{numberOfItems}</span> {substitute}</div>
                 <hr className="one-page-form-line"></hr>
                 <div className="items-container">
                     {Array.from(Array(numberOfItems).keys()).map((crate, index) => {
                     return (
                         <div key={index}>
-                            <img className={'item'} src={process.env.PUBLIC_URL + `/assets/vacines/${vacinesArray[index]}.png`}></img>
+                            <img className={pictureSize} src={process.env.PUBLIC_URL + `${pictureAdress}${vacinesArray[index]}.png`}></img>
                         </div>
                     )
                         }
