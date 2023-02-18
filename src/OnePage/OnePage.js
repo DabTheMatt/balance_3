@@ -1,12 +1,19 @@
 import { useState, useEffect, useRef } from "react";
-import vacine_1 from "../assets/vacines/vacine_1.png";
-import vacine_2 from "../assets/vacines/vacine_2.png";
-import vacine_3 from "../assets/vacines/vacine_3.png";
-import vacine_4 from "../assets/vacines/vacine_4.png";
-
+import { db } from "../firebase";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 
 export default function OnePage(props) {
     const ref = useRef(null);
+    const [values, setValues] = useState([]);
+    const valuesRef = collection(db, "values");
+
 
     const [howMany, setHowMany] = useState('');
     const [what, setWhat] = useState('');
@@ -70,9 +77,22 @@ export default function OnePage(props) {
         setVacinesArray(tempAr2);
       };
 
+      useEffect(() => {
+        const getValues = async () => {
+          const data = await getDocs(valuesRef);
+          setValues(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        };
+    
+        getValues();
+      }, []);
 
     return (
         <div className="main-container" id="main-id">
+            {values.map((el) => {
+                return (
+                    <div key={el.id}>{el.name}</div>
+                )
+            })}
             <h1 className="main-title">Balance</h1>
             <h2 className="main-subtitle">How much is worth?</h2>
             <hr className="line-divider"></hr>
@@ -84,7 +104,7 @@ export default function OnePage(props) {
                <label className="one-page-form-label">How much $ it costs?</label>
                 <input className="one-page-form-input" id="form-how-many" type="number" value={howMany} onChange={e => setHowMany(e.target.value)}></input>
                 <hr className="one-page-form-line"></hr>
-                <input className="one-page-form-submit-button" type="submit" value="Check"/><nobr>>></nobr>
+                <input className="one-page-form-submit-button" type="submit" value="Check"/><nobr>--</nobr>
             </form>
             {(submited === false) ? (
                 <div className="items-placeholder"></div> 
