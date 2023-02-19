@@ -31,8 +31,23 @@ export default function OnePage(props) {
         ref.current?.scrollIntoView({behavior: 'smooth'});
      }, [numberOfItems, submited, ref]);
 
-    const handleSubmit= (e) =>  {
+    const setPriceLevel = () => {
+        let tempValues = values;
+        function setThereshold (el) {
+            if (el.priceForItem <= howMany) {
+                return el.name;
+            }
+            
+        }
+        let threshold = tempValues.filter(setThereshold);
+
+            console.log('threshold', threshold); 
+        
+    }
+
+    const handleSubmit = (e) =>  {
         e.preventDefault();
+        setPriceLevel();
         let numbers = 0;
         let numberOfPictures;
         if (howMany <= 5) {
@@ -90,7 +105,11 @@ export default function OnePage(props) {
         <div className="main-container" id="main-id">
             {values.map((el) => {
                 return (
-                    <div key={el.id}>{el.name}</div>
+                    <div key={el.id}>
+                        <h2 >{el.name}</h2>
+                        <p>{el.priceForItem}</p>
+                        <p>{el.pictureAdress}</p>
+                    </div>
                 )
             })}
             <h1 className="main-title">Balance</h1>
