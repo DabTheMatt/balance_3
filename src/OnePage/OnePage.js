@@ -35,7 +35,7 @@ export default function OnePage(props) {
         let tempValues = values;
         function setThereshold (el) {
             if (el.priceForItem <= howMany) {
-                return el.name;
+                return el.name; // to fix
             }
             
         }
