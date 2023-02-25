@@ -24,6 +24,7 @@ export default function OnePage(props) {
     const [substitute, setSubstitute] = useState('');
     const [pictureAdress, setPictureAdress] = useState('');
     const [pictureSize, setPictureSize] = useState('');
+    const [noVar, setNoVar] = useState('');
 
     useEffect(() => {
         console.log(numberOfItems);
@@ -103,6 +104,7 @@ export default function OnePage(props) {
 
     return (
         <div className="main-container" id="main-id">
+            <h1>{props.myName}</h1>
             {values.map((el) => {
                 return (
                     <div key={el.id}>
