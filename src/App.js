@@ -15,7 +15,7 @@ import OnePage from './OnePage/OnePage';
 function App() {
   return (
     <div className="App">
-     <OnePage />
+     <OnePage myName={'Maciek'}/>
     </div>
   );
 }
