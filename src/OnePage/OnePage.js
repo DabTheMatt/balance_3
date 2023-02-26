@@ -24,7 +24,6 @@ export default function OnePage(props) {
     const [substitute, setSubstitute] = useState('');
     const [pictureAdress, setPictureAdress] = useState('');
     const [pictureSize, setPictureSize] = useState('');
-    const [noVar, setNoVar] = useState('');
 
     useEffect(() => {
         console.log(numberOfItems);
